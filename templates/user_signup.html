@@ -1,0 +1,77 @@
+{% include 'head.html' %}
+<style>
+    form{
+        margin:auto;
+    }
+</style>
+<script>
+    function validateForm(){
+        var email = document.getElementById("email").value;
+        if(email == ""){
+            alert("이메일을 입력해주세요.");
+            document.getElementById("email").focus();
+            return false; 
+        }
+        var name = document.getElementById("name").value;
+        if(name == ""){
+            alert("이름을 입력해주세요.");
+            document.getElementById("name").focus();
+            return false; 
+        }
+        var password = document.getElementById("password").value;
+        if(password.length < 6){
+            alert("비밀번호는 6글자 이상 입력해야 합니다.");
+            return false;
+        }
+        var password_re = document.getElementById("password_re").value;
+        if(password != password_re){
+            alert("비밀번호는 일치해야 합니다.");
+            return false;
+        }   
+    }
+</script>
+<body> 
+<div class="container" >
+    {% include 'header.html' %}
+    <h4 class="text-center py-3 text-center">회원 가입 페이지</h4>
+    <form class="form" id="signupForm" method="POST" onsubmit="return validateForm();">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">이메일</span>
+            </div>
+            <input type="email" name="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"> 
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">이름</span>
+            </div>
+            <input type="text" name="u_name"class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">비밀번호</span>
+            </div>
+            <input type="password" name="password"class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">비밀번호 확인</span>
+            </div>
+            <input type="password" name="password_re"class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        
+        <div class="form-group text-center">
+            <button class="btn btn-outline-success" type="submit">회원 등록</button>
+            <a href="{{ url_for('index') }}" class="btn btn-outline-dark mx-2">이전 화면</a>
+        </div>
+    </form>
+    {% include 'footer.html' %}
+</div>
+
+<script>
+        $(document).ready(function() {
+            // initialize
+            
+        });
+    </script>
+</body>

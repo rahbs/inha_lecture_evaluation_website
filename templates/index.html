@@ -1,0 +1,121 @@
+{% include 'head.html' %}
+<body>
+  <div class="container">
+      {% include 'header.html' %}
+      {% if u_name %}
+          {% include 'login.html' %}
+      {% else %}
+          {% include 'logout.html' %}            
+      {% endif %}
+      <div class="mdl-layout__content">
+			<div class="site-content">
+				<div class="container">
+					<br><section class="mdl-grid site-max-width">
+						<!--공지사항 -->
+						<div class="mdl-cell mdl-card mdl-cell--8-col mdl-cell--4-col-tablet  mdl-shadow--4dp portfolio-card">
+							<div class="mdl-card__title">
+								<h2 class="mdl-card__title-text">공지사항</h2>
+							</div>
+							<ul class="demo-list-three mdl-list">
+								
+								<li class="mdl-list__item mdl-list__item--three-line">
+									<span class="mdl-list__item-primary-content">
+										<i class="material-icons mdl-list__item-avatar"> &nbsp;1</i>
+										<span>2018년도 1학기 강의평가 최종 업데이트</span>
+										<span class="mdl-list__item-text-body">2018년 06월 23일</span>
+									</span>
+								</li>
+								<li class="mdl-list__item mdl-list__item--three-line">
+									<span class="mdl-list__item-primary-content">
+										<i class="material-icons mdl-list__item-avatar"> &nbsp;2</i>
+										<span>족보 최종 업데이트</span>
+										<span class="mdl-list__item-text-body">2018년 06월 23일</span>
+									</span>
+								</li>
+							</ul>
+						</div>
+						
+						<div class="demo-card-event mdl-cell mdl-card mdl-shadow--4dp event-card portfolio-card">
+							<div class="mdl-card__title mdl-card--expand">
+								<h4>강의평가를 자유롭게 작성합시다.</h4>
+							</div>
+							<div class="mdl-card__title mdl-card--expand">
+							이용자 :{{ userNum[0][0] }}명<br>						
+							</div>							
+
+						</div>
+					</section>
+				
+					<!-- 학교 사진 -->
+					<section class="section--center mdl-grid site-max-width">
+						<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+							<div class="mdl-card__media">
+								<img class="article-image" src="static/inha.jpg" border="0" alt="">
+							</div>
+							<div class="mdl-card__title">
+								<h2 class="mdl-card__title-text">인하대 본관</h2>
+							</div>
+							<div class="mdl-card__supporting-text">인하대 본관입니다.</div>
+						</div>
+						<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+							<div class="mdl-card__media">
+								<img class="article-image" src="static/inha2.jpg" border="0"
+									alt="">
+							</div>
+							<div class="mdl-card__title">
+								<h2 class="mdl-card__title-text">하이데거 숲</h2>
+							</div>
+							<div class="mdl-card__supporting-text">인하대 하이데거숲 풍경입니다.</div>
+						</div>
+						<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+							<div class="mdl-card__title">
+								<h2 class="mdl-card__title-text">바로가기</h2>
+							</div>
+							<ul class="demo-list-three mdl-list">
+							<li class="mdl-list__item mdl-list__item--three-line">
+								<span class="mdl-list__item-primary-content">
+									<a href="https://learn.inha.ac.kr"><img class="material-icons mdl-list__item-avatar" src="static/blackboard.png" alt="" ></a>
+									<span><a href="https://learn.inha.ac.kr">black board</a></span>
+									
+								</span>
+							</li>
+							<li class="mdl-list__item mdl-list__item--three-line">
+								<span class="mdl-list__item-primary-content">
+									<a href="https://portal.inha.ac.kr/"><img class="material-icons mdl-list__item-avatar" src="static/portal.png" alt=""></a>
+									<span> <a href="https://portal.inha.ac.kr/">portal system</a></span>
+									
+								</span>
+							</li>
+							<li class="mdl-list__item mdl-list__item--three-line">
+								<span class="mdl-list__item-primary-content">
+									<a href="http://www.inha.ac.kr/user/boardList.do?boardId=25&siteId=kr&id=kr_010801000000&parent="><img class="material-icons mdl-list__item-avatar" src="static/notice.png" alt=""></a>
+									<span><a href="http://www.inha.ac.kr/user/boardList.do?boardId=25&siteId=kr&id=kr_010801000000&parent="> 공지사항</a></span>
+									
+								</span>
+							</li>
+							<li class="mdl-list__item mdl-list__item--three-line">
+								<span class="mdl-list__item-primary-content">
+									<a href="http://www.inha.ac.kr/mbshome/mbs/plaza/index.do"> <img class="material-icons mdl-list__item-avatar" src="static/guangjang.png" alt=""></a>
+									<span><a href="http://www.inha.ac.kr/mbshome/mbs/plaza/index.do">인하광장</a></span>
+									
+								</span>
+							</li>
+						</ul>
+						</div>
+					</section>
+				
+				</div>
+			</div>
+		</div>
+  
+    </div>
+      {% include 'footer.html' %}
+  <script>
+    $(document).ready(function() {
+        // initialize
+    });
+  </script>      
+</body>
+
+
+

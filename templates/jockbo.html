@@ -1,0 +1,59 @@
+{% include 'head.html' %}
+<body>
+    <div class="container">
+        {% include 'header.html' %}
+        {% if u_name %}
+            {% include 'login.html' %}
+        {% else %}
+            {% include 'logout.html' %}            
+        {% endif %}
+        
+        <div class="row main-loginout">
+            <div class="col-12 py-3 text-left">
+                <form method="GET" action="{{ url_for('lecture_evaluation') }}" class="form-inline mt-3">
+                    <input type="text" name="keyword" class="form-control mx-1 mt-2" placeholder="내용을 입력하세요.">
+                    <button type="submit" class="btn btn btn-outline-success mx-1 mt-2">검색</button>
+                    {% if u_name %}
+                    <a class="btn btn btn-outline-dark mx-1 mt-2" href="{{ url_for('board_post') }}" >글 쓰기</a>
+                    {% endif %}
+                    
+                    </form> 
+            </div>
+        </div>
+  
+           
+        <div class="row my-3">
+            <div class="col" id='jockbo_list'>                
+            </div>
+        </div>
+        <div class="row my-3">
+       
+            <div class="col-6 text-center">
+                <ul class="pagination" id='board_pagination'>
+                    <li class="page-item"><a class="page-link" href="{{ url_for('jockbo', page=pageNum-1) }}"><<</a></li>
+                    {% for pn in pageNumList %}
+                    <li class="page-item {% if pn==pageNum %}active{% endif %}"><a class="page-link" href="{{ url_for('jockbo', page=pn) }}">{{ pn }}</a></li>
+                    {% endfor %}
+                    <li class="page-item"><a class="page-link" href="{{ url_for('jockbo', page=pageNum+1) }}">>></a></li>
+                </ul>                
+            </div>            
+           
+        </div>
+    {% include 'footer.html' %}
+    </div>
+    <script>
+        $(document).ready(function() {
+            // initialize
+
+            // 족보 글목록 페이지 가져오기
+          console.log("{{pageNum}}", "{{keyword}}");
+            $.get("{{ url_for('jockbo_list', page=pageNum, keyword=keyword) }}".replace("&amp;", "&"), function(data, status){
+                // console.log("Data: " + data + "\nStatus: " + status);
+                $("#jockbo_list").html(data);
+            });
+        });
+    </script>
+</body>
+
+
+
